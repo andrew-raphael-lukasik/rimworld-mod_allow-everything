@@ -20,5 +20,8 @@
 		<!-- <li>arvkus.template</li> -->
 	</incompatibleWith>
 
-	<description>Experimental mod that auto-allows anything.</description>
+	<description>Experimental mod that auto-allows anything.
+
+Source code: https://github.com/andrew-raphael-lukasik/rimworld-mod_allow-anything
+</description>
 </ModMetaData>
