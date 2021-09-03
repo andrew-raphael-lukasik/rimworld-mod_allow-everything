@@ -34,6 +34,11 @@ namespace AllowAnything
 				listing.Label( "Groups" );
 				listing.Indent();
 				listing.Label( _settings.thingRequestGroups );
+				if( listing.ButtonText("Clear") )
+				{
+					_settings.thingRequestGroups = "";
+					_settings.thingRequestGroupsParsed = new List<ThingRequestGroup>();
+				}
 				listing.Outdent();
 
 				listing.Indent();
