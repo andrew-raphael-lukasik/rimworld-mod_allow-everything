@@ -50,8 +50,7 @@ namespace AllowAnything
 				var list = map.listerThings.ThingsInGroup( group );
 				for( int i=0 ; i<list.Count ; i++ )
 				{
-					Thing thing = list[i];
-					if( thing!=null && thing.IsForbidden(playerFaction) )
+					if( ( list[i] is Thing thing ) && thing.IsForbidden(playerFaction) )
 					{
 						Int16 hash = (Int16)( thing.GetHashCode() % Int16.MaxValue );
 						if( !_allowedAlready.Contains(hash) )
