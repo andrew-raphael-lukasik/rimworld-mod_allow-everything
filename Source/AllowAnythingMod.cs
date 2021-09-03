@@ -69,10 +69,11 @@ namespace AllowAnything
 								&&	group!=ThingRequestGroup.CreatesInfestations
 								&&	group!=ThingRequestGroup.DryadSpawner
 								&&	group!=ThingRequestGroup.Everything
-								&&	group!=ThingRequestGroup.Facility
+								// &&	group!=ThingRequestGroup.Facility// what are these?
 								&&	group!=ThingRequestGroup.Filth
 								&&	group!=ThingRequestGroup.Fire
 								&&	group!=ThingRequestGroup.FoodDispenser
+								&&	group!=ThingRequestGroup.FoodSource
 								&&	group!=ThingRequestGroup.Grave
 								&&	group!=ThingRequestGroup.HarvestablePlant
 								&&	group!=ThingRequestGroup.HasGUIOverlay
