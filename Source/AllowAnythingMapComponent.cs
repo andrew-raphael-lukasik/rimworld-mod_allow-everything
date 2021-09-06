@@ -40,28 +40,34 @@ namespace AllowAnything
 		{
 			var playerFaction = Faction.OfPlayer;
 			int ticksGame = _tickManager.TicksGame;
+			bool allow = _settings.allow;
+			bool notify = _settings.notify;
 			
-			if( _settings.thingRequestGroupsParsed==null )
-				_settings.thingRequestGroupsParsed = AllowAnythingMod.StringToEnumList<ThingRequestGroup>( _settings.thingRequestGroups );
+			// if( _settings.thingRequestGroupsParsed==null )
+			// 	_settings.thingRequestGroupsParsed = AllowAnythingMod.StringToEnumList<ThingRequestGroup>( _settings.thingRequestGroups );
 			
-			for( int igroup=0 ; igroup<_settings.thingRequestGroupsParsed.Count ; igroup++ )
+			// for( int igroup=0 ; igroup<_settings.thingRequestGroupsParsed.Count ; igroup++ )
+			// 	ThingRequestGroup group = _settings.thingRequestGroupsParsed[igroup];
 			{
-				ThingRequestGroup group = _settings.thingRequestGroupsParsed[igroup];
-				var list = map.listerThings.ThingsInGroup( group );
-				for( int i=0 ; i<list.Count ; i++ )
+				var list = map.listerThings.ThingsInGroup( ThingRequestGroup.HaulableEver );
+				for( int i=list.Count-1 ; i!=-1 ; i-- )
 				{
-					if( ( list[i] is Thing thing ) && thing.IsForbidden(playerFaction) )
+					if(
+							( list[i] is Thing thing )
+						&&	thing.IsForbidden(playerFaction)
+						&&	!thing.Fogged()
+					)
 					{
 						Int16 hash = (Int16)( thing.GetHashCode() % Int16.MaxValue );
 						if( !_allowedAlready.Contains(hash) )
-						{ 
+						{
 							_allowedAlready.Push( hash );
 
-							if( _settings.allow )
+							if( allow )
 								thing.SetForbidden( false );
 
-							if( _settings.notify )
-								Messages.Message( text:$"Allowed: {thing.LabelShort}\t(part of {group} group)" , lookTargets:thing , def:MessageTypeDefOf.NeutralEvent );
+							if( notify )
+								Messages.Message( text:$"Allowed: {thing.LabelShort}" , lookTargets:thing , def:MessageTypeDefOf.NeutralEvent );
 						}
 					}
 				}
