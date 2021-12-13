@@ -40,6 +40,7 @@ namespace AllowAnything
 		void AllowAllHaulableThings ()
 		{
 			Faction playerFaction = Faction.OfPlayer;
+			int ticksGame = _tickManager.TicksGame;
 			bool allow = _settings.allow;
 			bool notify = _settings.notify;
 			
@@ -50,6 +51,7 @@ namespace AllowAnything
 						( list[i] is Thing thing )
 					&&	thing.IsForbidden(playerFaction)
 					&&	!thing.Fogged()
+					&&  ( !((Corpse) list[i] is Corpse corpse) || ticksGame-corpse.timeOfDeath>k_ticks_threshold*2 )// fixes: corpses being eaten by predators losing it's allowed status
 				)
 				{
 					if( !_allowedAlready.Contains(thing) )
