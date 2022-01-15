@@ -2,18 +2,18 @@
 using Verse;
 using RimWorld;
 
-namespace AllowAnything
+namespace AllowEverything
 {
-	public class AllowAnythingMod : Mod
+	public class AllowEverythingMod : Mod
 	{
 
-		AllowAnythingModSettings _settings;
+		AllowEverythingModSettings _settings;
 
-		public AllowAnythingMod ( ModContentPack content )
+		public AllowEverythingMod ( ModContentPack content )
 			: base( content )
-			=> this._settings = GetSettings<AllowAnythingModSettings>();
+			=> this._settings = GetSettings<AllowEverythingModSettings>();
 
-		public override string SettingsCategory () => "Allow Anything";
+		public override string SettingsCategory () => "Allow Everything";
 
 		public override void DoSettingsWindowContents ( Rect rect )
 		{

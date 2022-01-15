@@ -1,8 +1,8 @@
 ﻿using Verse;
 
-namespace AllowAnything
+namespace AllowEverything
 {
-	public class AllowAnythingModSettings : ModSettings
+	public class AllowEverythingModSettings : ModSettings
 	{
 		
 		public bool allow = true;

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using Verse;
 using RimWorld;
 
-namespace AllowAnything
+namespace AllowEverything
 {
-	public class AllowAnythingMapComponent : MapComponent
+	public class AllowEverythingMapComponent : MapComponent
 	{
 		const int k_ticks_threshold = 1234;
 		int _ticks = 0;
@@ -14,15 +14,15 @@ namespace AllowAnything
 		/// <remarks> A HashSet to list items that were allowed already so we don't do that again. </remarks>
 		HashSet<Thing> _allowedAlready;
 
-		AllowAnythingModSettings _settings = null;
+		AllowEverythingModSettings _settings = null;
 		TickManager _tickManager = null;
 
-		public AllowAnythingMapComponent ( Map map )
+		public AllowEverythingMapComponent ( Map map )
 			: base(map)
 		{
 			_settings = LoadedModManager
-				.GetMod<AllowAnythingMod>()
-				.GetSettings<AllowAnythingModSettings>();
+				.GetMod<AllowEverythingMod>()
+				.GetSettings<AllowEverythingModSettings>();
 			_allowedAlready = new HashSet<Thing>();
 			_tickManager = Find.TickManager;
 		}
