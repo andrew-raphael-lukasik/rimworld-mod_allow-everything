@@ -51,7 +51,7 @@ namespace AllowEverything
 						( list[i] is Thing thing )
 					&&	thing.IsForbidden(playerFaction)
 					&&	!thing.Fogged()
-					&&  ( !((Corpse) list[i] is Corpse corpse) || ticksGame-corpse.timeOfDeath>k_ticks_threshold*2 )// fixes: corpses being eaten by predators losing it's allowed status
+					&&	( !(thing is Corpse corpse) || ticksGame-corpse.timeOfDeath>k_ticks_threshold*2 )// fixes: corpses being eaten by predators losing it's allowed status
 				)
 				{
 					if( !_allowedAlready.Contains(thing) )
