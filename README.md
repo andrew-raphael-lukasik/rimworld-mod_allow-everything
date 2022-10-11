@@ -1,4 +1,4 @@
-"Allow Everything" mod for RimWorld 1.3
+"Allow Everything" mod for RimWorld 1.4, 1.3
 
 https://steamcommunity.com/sharedfiles/filedetails/?id=2592726874
 
