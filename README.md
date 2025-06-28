@@ -3,4 +3,4 @@
 https://steamcommunity.com/sharedfiles/filedetails/?id=2592726874
 
 # Description
-Experimental mod that auto-allows everything.
+Mod that auto-allows everything.
