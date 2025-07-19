@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 using Verse;
 using RimWorld;
+
 using Mathf = UnityEngine.Mathf;
 
 namespace AllowEverything
@@ -10,15 +11,12 @@ namespace AllowEverything
 	public class AllowEverythingMapComponent : MapComponent
 	{
 		const int k_num_ticks_delay = 1234;// jobs are scheduled once every this num of ticks
-		const int k_items_per_job = 512;
+		const int k_items_per_job = 1024;
 		int _ticks = 0;
-
-		/// <remarks> A HashSet to list items that were allowed already so we don't do that again. </remarks>
-		HashSet<Thing> _allowedAlready;
-		ConcurrentBag<Thing> _thingsToAllow;// safe-thread container to get data back from job threads
-
 		AllowEverythingModSettings _settings = null;
 		TickManager _tickManager = null;
+		HashSet<Thing> _allowedAlready;// list items that were allowed already so we don't do that again
+		ConcurrentBag<Thing> _thingsToAllow;// safe-thread container to get data back from job threads
 
 		public AllowEverythingMapComponent ( Map map )
 			: base(map)
