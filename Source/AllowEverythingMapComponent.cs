@@ -70,6 +70,7 @@ namespace AllowEverything
 
 		public override void ExposeData ()
 		{
+			_allowedAlready.RemoveWhere( (o) => o==null );
 			Scribe_Collections.Look( ref _allowedAlready , false , nameof(_allowedAlready) , LookMode.Reference );
 			base.ExposeData();
 		}
